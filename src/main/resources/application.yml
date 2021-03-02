@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3306/selex?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: qwer1234!
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+        format_sql: true
+        use_sql_comments: false
+        globally_quoted_identifiers: true
+        globally_quoted_identifiers_skip_column_definitions: true
+      javax:
+        persistence.sharedCache.mode: ENABLE_SELECTIVE
+      org.hibernate:
+        envers:
+          audit_table_suffix: _HISTORY
+          store_data_at_delete: true
